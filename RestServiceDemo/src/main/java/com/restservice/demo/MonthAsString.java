@@ -8,7 +8,7 @@ public class MonthAsString {
    private String month;
 
    public MonthAsString(int number){
-      if (numberIsOk(number)){
+      if (number > 0 && number < 13){
          month = getMonthAsString(number);
       } else {
          month = "INCORRECT INPUT DATA";
@@ -32,9 +32,5 @@ public class MonthAsString {
          sb.insert(j, "-");
       }
       return sb.toString();
-   }
-
-   private static boolean numberIsOk(int number) {
-      return number > 0 && number <= 13;
    }
 }

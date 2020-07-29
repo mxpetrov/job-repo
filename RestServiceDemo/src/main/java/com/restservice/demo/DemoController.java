@@ -12,8 +12,8 @@ public class DemoController {
 
    @PostMapping("/sort")  // expl http://localhost:8080/post { "strings" : ["somestring", "12345", ...] }
    public Sorted sort(@RequestBody Sorted sorted){
-      if (sorted != null && sorted.getStingray() != null){
-         return new Sorted(Sorted.sortedStringArray(sorted.getStingray()));
+      if (sorted != null && sorted.getStrings() != null){
+         return new Sorted(Sorted.sortedStringArray(sorted.getStrings()));
       }
       else return null;
    }
