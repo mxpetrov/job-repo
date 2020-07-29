@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sorted {
    private ArrayList<String> strings;
@@ -24,7 +26,7 @@ public class Sorted {
    public static ArrayList<String> sortedStringArray(ArrayList<String> stringArray) {
       ArrayList<String> sortedStrings = new ArrayList<>(stringArray);
       sortedStrings.sort((a, b) -> a.length() > b.length() ? 1 : (a.length() < b.length() ? -1 : a.compareTo(b)));
-      sortedStrings.forEach(s -> s = String.format("(%d): %s", s.length(), s));
-      return sortedStrings;
+      List<String> collect = sortedStrings.stream().map(s -> s = String.format("(%d): %s", s.length(), s)).collect(Collectors.toList());
+      return (ArrayList<String>) collect;
    }
 }
